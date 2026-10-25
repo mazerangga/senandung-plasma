@@ -1,3 +1,5 @@
+![Senandung Plasma](assets/icons/png/senandung-128.png)
+
 # Senandung Plasma
 
 **Widget lirik tersinkron (LRC) untuk KDE Plasma 6.** Mendeteksi lagu yang sedang diputar, mengunduh lirik bertanda waktu dari [LRCLIB](https://lrclib.net), lalu menampilkannya di desktop dengan latar transparan. Baris yang sedang dinyanyikan disorot sesuai musik.
@@ -204,6 +206,7 @@ senandung-plasma/
 │       ├── romanize.py        # pembantu romanisasi (opsional)
 │       ├── strings.js         # terjemahan antarmuka (sumber Indonesia, English)
 │       └── vendor/            # modul bawaan (dibuat vendor.sh, tidak masuk git)
+├── assets/icons/             # ikon (source/ + ukuran png/), sama dengan Senandung
 ├── build.sh                   # membuat dist/*.plasmoid (menjalankan vendor.sh bila perlu)
 ├── vendor.sh                  # mengunduh modul di requirements-vendor.txt
 ├── install.sh                 # vendor + pasang/perbarui dari sumber
