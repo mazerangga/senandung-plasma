@@ -7,6 +7,7 @@ import QtQuick.Controls as QQC2
 import org.kde.plasma.plasmoid
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.plasma5support as Plasma5Support
+import "../code/strings.js" as Strings
 
 PlasmoidItem {
     id: root
@@ -27,7 +28,7 @@ PlasmoidItem {
     property string trackKey: ""
     property var lyrics: []
     property int currentIndex: -1
-    property string message: i18n("Menunggu pemutar…")
+    property string message: tr("Menunggu pemutar…")
     property var cache: ({})
     property int songOffset: 0          // geser waktu khusus lagu ini (tag [offset:] di file .lrc)
     property string toastText: ""
@@ -42,6 +43,11 @@ PlasmoidItem {
     property var searchResults: []
 
     readonly property var cfg: Plasmoid.configuration
+
+    // terjemahan antarmuka: Indonesia (bawaan) atau English, sesuai pengaturan Bahasa
+    function tr(text) {
+        return Strings.tr(cfg.language, text, Array.prototype.slice.call(arguments, 1))
+    }
     readonly property var allowedPlayers: (cfg.playerName || "").toLowerCase()
         .split(",").map(function (x) { return x.trim() }).filter(function (x) { return x !== "" })
     // Pemutar yang diabaikan saat daftar "Pemutar" kosong (browser dianggap bukan pemutar musik,
@@ -53,17 +59,17 @@ PlasmoidItem {
         + " | while IFS= read -r l; do printf %s \"$l\" | base64 -w0; printf '\\n'; done"
     Plasmoid.contextualActions: [
         PlasmaCore.Action {
-            text: i18n("Cari lirik online…")
+            text: tr("Cari lirik online…")
             icon.name: "edit-find"
             onTriggered: root.openPanel(0)
         },
         PlasmaCore.Action {
-            text: i18n("Tempel teks lirik (.lrc)…")
+            text: tr("Tempel teks lirik (.lrc)…")
             icon.name: "edit-paste"
             onTriggered: root.openPanel(1)
         },
         PlasmaCore.Action {
-            text: i18n("Buka file lirik (.lrc)…")
+            text: tr("Buka file lirik (.lrc)…")
             icon.name: "document-open"
             onTriggered: root.openPanel(2)
         }
@@ -104,7 +110,7 @@ PlasmoidItem {
                 diag("playerctl tidak mengembalikan pemutar (belum ada lagu diputar, atau playerctl tidak terpasang)")
             else
                 diag("tidak ada pemutar yang cocok (daftar pemutar: '" + (cfg.playerName || "") + "', blacklist: '" + (cfg.blacklist || "") + "')")
-            message = i18n("Menunggu pemutar…")
+            message = tr("Menunggu pemutar…")
             if (trackKey !== "" || lyrics.length > 0) {
                 trackKey = ""
                 lyrics = []
@@ -208,7 +214,7 @@ PlasmoidItem {
         if (list.length === 0) {
             lyrics = []
             currentIndex = -1
-            message = i18n("Lirik tersinkron tidak ditemukan")
+            message = tr("Lirik tersinkron tidak ditemukan")
         } else {
             songOffset = list[0]._offset || 0
             lyrics = list
@@ -399,9 +405,7 @@ PlasmoidItem {
     function runRoman(list, cb) {
         var texts = list.map(function (x) { return x.text })
         var b64 = b64enc(JSON.stringify(texts))
-        var cmd = "py=" + shq(cfg.pythonPath || "")
-            + '; case "$py" in "~"*) py="$HOME${py#"~"}";; esac; [ -x "$py" ] || py=python3; '
-            + "printf %s " + b64 + ' | base64 -d | "$py" ' + shq(romanScript)
+        var cmd = "printf %s " + b64 + " | base64 -d | python3 " + shq(romanScript)
         runShell(cmd, function (out, code) {
             var res = null
             try { res = JSON.parse(out) } catch (e) { res = null }
@@ -517,7 +521,7 @@ PlasmoidItem {
         target: Plasmoid.configuration
         function onRomanizeChanged() { root.reload() }
         function onRomanModeChanged() { root.reload() }
-        function onPythonPathChanged() { root.reload() }
+        function onLanguageChanged() { root.reload() }
     }
 
     function reload() {
@@ -535,7 +539,7 @@ PlasmoidItem {
             setLyrics(cache[key], key)
             return
         }
-        message = i18n("Mencari lirik…")
+        message = tr("Mencari lirik…")
 
         var proceeded = false
         function proceed(out) {
@@ -617,7 +621,7 @@ PlasmoidItem {
         offsetTitle = title
         offsetSaveTimer.restart()
         updateIndex()
-        showToast(i18n("Geser waktu lagu ini: %1 ms", songOffset))
+        showToast(tr("Geser waktu lagu ini: %1 ms", songOffset))
     }
 
     Timer {
@@ -707,10 +711,10 @@ PlasmoidItem {
         var a = searchArtist.trim()
         var t = searchTitle.trim()
         if (a === "" && t === "") {
-            searchStatus = i18n("Isi artis dan/atau judul, lalu tekan Cari.")
+            searchStatus = tr("Isi artis dan/atau judul, lalu tekan Cari.")
             return
         }
-        searchStatus = i18n("Mencari…")
+        searchStatus = tr("Mencari…")
         searchResults = []
         var len = panelSong.length
         searchLrclib(a, t, function (res, failed) {
@@ -720,15 +724,15 @@ PlasmoidItem {
                 })
             searchResults = res
             searchStatus = res.length > 0
-                ? i18n("%1 lirik tersinkron ditemukan. Klik dua kali untuk memakai.", res.length)
-                : (failed ? i18n("Pencarian gagal (cek koneksi internet).") : i18n("Tidak ada lirik tersinkron ditemukan."))
+                ? tr("%1 lirik tersinkron ditemukan. Klik dua kali untuk memakai.", res.length)
+                : (failed ? tr("Pencarian gagal (cek koneksi internet).") : tr("Tidak ada lirik tersinkron ditemukan."))
         })
     }
 
     function resultLabel(it) {
         var d = Math.round(it.duration || 0)
         var diff = (panelSong.length > 0 && d > 0)
-            ? "  (" + i18n("selisih %1 dtk", Math.abs(d - panelSong.length)) + ")" : ""
+            ? "  (" + tr("selisih %1 dtk", Math.abs(d - panelSong.length)) + ")" : ""
         return (it.artistName || "?") + " - " + (it.trackName || "?") + "  ·  " + (it.albumName || "-")
             + "  ·  " + Math.floor(d / 60) + ":" + pad2(d % 60) + diff
     }
@@ -736,12 +740,12 @@ PlasmoidItem {
     // simpan teks LRC sebagai file lirik lagu (menimpa yang lama), lalu muat ulang
     function applyLrc(raw, song) {
         if (!song || song.title === "") {
-            showToast(i18n("Tidak ada lagu aktif"))
+            showToast(tr("Tidak ada lagu aktif"))
             return false
         }
         raw = String(raw).replace(/\r\n?/g, "\n").replace(/^\uFEFF/, "")
         if (parseLrc(raw).length === 0) {
-            showToast(i18n("Bukan lirik .lrc bertanda waktu ([mm:ss.xx])"))
+            showToast(tr("Bukan lirik .lrc bertanda waktu ([mm:ss.xx])"))
             return false
         }
         var name = lrcFileName(song.artist, song.title)
@@ -751,12 +755,12 @@ PlasmoidItem {
             + ' | base64 -d > "$d"/"$f" && rm -f "$d"/"${f%.lrc}.romaji.lrc"'
         runShell(cmd, function (out, code) {
             if (code !== 0) {
-                showToast(i18n("Gagal menyimpan lirik"))
+                showToast(tr("Gagal menyimpan lirik"))
                 return
             }
             delete cache[key]
             if (key === trackKey) trackKey = ""        // paksa muat ulang dari file lokal
-            showToast(i18n("Lirik disimpan: %1", name))
+            showToast(tr("Lirik disimpan: %1", name))
         })
         closePanel()
         return true
@@ -773,7 +777,7 @@ PlasmoidItem {
         runShell(cmd, function (out, code) {
             var txt = b64dec(out)
             if (code !== 0 || txt.trim() === "") {
-                showToast(i18n("Gagal membaca file"))
+                showToast(tr("Gagal membaca file"))
                 return
             }
             applyLrc(txt, song)
@@ -789,7 +793,7 @@ PlasmoidItem {
             dlg.rejected.connect(function () { dlg.destroy() })
             dlg.open()
         } catch (e) {
-            showToast(i18n("Dialog file tidak tersedia, ketik path-nya."))
+            showToast(tr("Dialog file tidak tersedia, ketik path-nya."))
         }
     }
 
@@ -890,7 +894,7 @@ PlasmoidItem {
             opacity: hover.hovered && !root.panelOpen ? 0.9 : 0
             visible: opacity > 0
             Behavior on opacity { NumberAnimation { duration: 150 } }
-            QQC2.ToolTip.text: i18n("Cari / ganti lirik")
+            QQC2.ToolTip.text: tr("Cari / ganti lirik")
             QQC2.ToolTip.visible: hovered
             onClicked: root.openPanel(0)
         }
@@ -939,9 +943,9 @@ PlasmoidItem {
                         id: tabs
                         Layout.fillWidth: true
                         onCurrentIndexChanged: root.panelTab = currentIndex
-                        QQC2.TabButton { text: i18n("Cari") }
-                        QQC2.TabButton { text: i18n("Tempel") }
-                        QQC2.TabButton { text: i18n("File") }
+                        QQC2.TabButton { text: tr("Cari") }
+                        QQC2.TabButton { text: tr("Tempel") }
+                        QQC2.TabButton { text: tr("File") }
                     }
                     QQC2.ToolButton {
                         icon.name: "window-close"
@@ -956,7 +960,7 @@ PlasmoidItem {
                     color: "white"
                     text: root.panelSong.title !== ""
                         ? root.panelSong.artist + " - " + root.panelSong.title
-                        : i18n("Tidak ada lagu aktif")
+                        : tr("Tidak ada lagu aktif")
                 }
 
                 StackLayout {
@@ -971,20 +975,20 @@ PlasmoidItem {
                             Layout.fillWidth: true
                             QQC2.TextField {
                                 Layout.fillWidth: true
-                                placeholderText: i18n("Artis")
+                                placeholderText: tr("Artis")
                                 text: root.searchArtist
                                 onTextEdited: root.searchArtist = text
                                 onAccepted: root.runSearch()
                             }
                             QQC2.TextField {
                                 Layout.fillWidth: true
-                                placeholderText: i18n("Judul")
+                                placeholderText: tr("Judul")
                                 text: root.searchTitle
                                 onTextEdited: root.searchTitle = text
                                 onAccepted: root.runSearch()
                             }
                             QQC2.Button {
-                                text: i18n("Cari")
+                                text: tr("Cari")
                                 onClicked: root.runSearch()
                             }
                         }
@@ -1013,7 +1017,7 @@ PlasmoidItem {
                         }
                         QQC2.Button {
                             Layout.alignment: Qt.AlignRight
-                            text: i18n("Pakai lirik terpilih")
+                            text: tr("Pakai lirik terpilih")
                             enabled: resList.currentIndex >= 0 && root.searchResults.length > 0
                             onClicked: root.applyLrc(root.searchResults[resList.currentIndex].syncedLyrics, root.panelSong)
                         }
@@ -1034,7 +1038,7 @@ PlasmoidItem {
                         }
                         QQC2.Button {
                             Layout.alignment: Qt.AlignRight
-                            text: i18n("Pakai lirik ini")
+                            text: tr("Pakai lirik ini")
                             onClicked: root.applyLrc(pasteArea.text, root.panelSong)
                         }
                     }
@@ -1046,7 +1050,7 @@ PlasmoidItem {
                             Layout.fillWidth: true
                             wrapMode: Text.WordWrap
                             color: "white"
-                            text: i18n("Pilih file .lrc / .txt, atau seret filenya ke widget.")
+                            text: tr("Pilih file .lrc / .txt, atau seret filenya ke widget.")
                         }
                         RowLayout {
                             Layout.fillWidth: true
@@ -1057,11 +1061,11 @@ PlasmoidItem {
                                 onAccepted: root.loadLrcFile(text)
                             }
                             QQC2.Button {
-                                text: i18n("Telusuri…")
+                                text: tr("Telusuri…")
                                 onClicked: root.browseFile()
                             }
                             QQC2.Button {
-                                text: i18n("Pakai")
+                                text: tr("Pakai")
                                 onClicked: root.loadLrcFile(pathField.text)
                             }
                         }

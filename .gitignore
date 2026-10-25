@@ -2,3 +2,7 @@ dist/
 *.plasmoid
 __pycache__/
 *.pyc
+
+# modul romanisasi hasil vendor.sh
+contents/code/vendor/
+contents/locale/

@@ -1,0 +1,186 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the senandung-plasma package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: senandung-plasma\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-25 09:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Menunggu pemutar…"
+msgstr ""
+
+msgid "Cari lirik online…"
+msgstr ""
+
+msgid "Tempel teks lirik (.lrc)…"
+msgstr ""
+
+msgid "Buka file lirik (.lrc)…"
+msgstr ""
+
+msgid "Lirik tersinkron tidak ditemukan"
+msgstr ""
+
+msgid "Mencari lirik…"
+msgstr ""
+
+msgid "Geser waktu lagu ini: %1 ms"
+msgstr ""
+
+msgid "Isi artis dan/atau judul, lalu tekan Cari."
+msgstr ""
+
+msgid "Mencari…"
+msgstr ""
+
+msgid "%1 lirik tersinkron ditemukan. Klik dua kali untuk memakai."
+msgstr ""
+
+msgid "Pencarian gagal (cek koneksi internet)."
+msgstr ""
+
+msgid "Tidak ada lirik tersinkron ditemukan."
+msgstr ""
+
+msgid "selisih %1 dtk"
+msgstr ""
+
+msgid "Tidak ada lagu aktif"
+msgstr ""
+
+msgid "Bukan lirik .lrc bertanda waktu ([mm:ss.xx])"
+msgstr ""
+
+msgid "Gagal menyimpan lirik"
+msgstr ""
+
+msgid "Lirik disimpan: %1"
+msgstr ""
+
+msgid "Gagal membaca file"
+msgstr ""
+
+msgid "Dialog file tidak tersedia, ketik path-nya."
+msgstr ""
+
+msgid "Cari / ganti lirik"
+msgstr ""
+
+msgid "Cari"
+msgstr ""
+
+msgid "Tempel"
+msgstr ""
+
+msgid "File"
+msgstr ""
+
+msgid "Artis"
+msgstr ""
+
+msgid "Judul"
+msgstr ""
+
+msgid "Pakai lirik terpilih"
+msgstr ""
+
+msgid "Pakai lirik ini"
+msgstr ""
+
+msgid "Pilih file .lrc / .txt, atau seret filenya ke widget."
+msgstr ""
+
+msgid "Telusuri…"
+msgstr ""
+
+msgid "Pakai"
+msgstr ""
+
+msgid "Jenis font:"
+msgstr ""
+
+msgid "Kosongkan untuk memakai font sistem"
+msgstr ""
+
+msgid "Ukuran font (pt):"
+msgstr ""
+
+msgid "Warna teks:"
+msgstr ""
+
+msgid "Warna baris aktif:"
+msgstr ""
+
+msgid "Perataan:"
+msgstr ""
+
+msgid "Kiri"
+msgstr ""
+
+msgid "Tengah"
+msgstr ""
+
+msgid "Kanan"
+msgstr ""
+
+msgid "Garis tepi teks:"
+msgstr ""
+
+msgid "Aktifkan (agar terbaca di wallpaper terang)"
+msgstr ""
+
+msgid "Geser waktu (ms):"
+msgstr ""
+
+msgid "File .lrc lokal:"
+msgstr ""
+
+msgid "Simpan lirik dari LRCLIB sebagai file .lrc"
+msgstr ""
+
+msgid "Folder lirik:"
+msgstr ""
+
+msgid "Romanisasi:"
+msgstr ""
+
+msgid "Ubah lirik Jepang/Mandarin/Korea dll ke huruf Latin"
+msgstr ""
+
+msgid "Tampilan romanisasi:"
+msgstr ""
+
+msgid "Hanya romaji"
+msgstr ""
+
+msgid "Asli + romaji (dua baris)"
+msgstr ""
+
+msgid "Pemutar:"
+msgstr ""
+
+msgid ""
+"Pisahkan dengan koma. Yang sedang Playing diutamakan, lalu urutan daftar. "
+"Kosongkan untuk semua pemutar (kecuali blacklist di bawah). Cek nama dengan: "
+"playerctl -l"
+msgstr ""
+
+msgid "Blacklist:"
+msgstr ""
+
+msgid ""
+"Pemutar yang diabaikan saat kolom Pemutar kosong, supaya video di browser "
+"tidak dikira lagu. Kolom Pemutar yang diisi selalu didahulukan dari "
+"blacklist."
+msgstr ""

@@ -1,0 +1,171 @@
+# English translation for senandung-plasma (source language: Indonesian)
+msgid ""
+msgstr ""
+"Project-Id-Version: senandung-plasma\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Menunggu pemutar…"
+msgstr "Waiting for a player…"
+
+msgid "Cari lirik online…"
+msgstr "Search lyrics online…"
+
+msgid "Tempel teks lirik (.lrc)…"
+msgstr "Paste lyrics text (.lrc)…"
+
+msgid "Buka file lirik (.lrc)…"
+msgstr "Open lyrics file (.lrc)…"
+
+msgid "Lirik tersinkron tidak ditemukan"
+msgstr "Synced lyrics not found"
+
+msgid "Mencari lirik…"
+msgstr "Searching for lyrics…"
+
+msgid "Geser waktu lagu ini: %1 ms"
+msgstr "Time offset for this song: %1 ms"
+
+msgid "Isi artis dan/atau judul, lalu tekan Cari."
+msgstr "Enter an artist and/or title, then press Search."
+
+msgid "Mencari…"
+msgstr "Searching…"
+
+msgid "%1 lirik tersinkron ditemukan. Klik dua kali untuk memakai."
+msgstr "%1 synced lyrics found. Double-click to use one."
+
+msgid "Pencarian gagal (cek koneksi internet)."
+msgstr "Search failed (check your internet connection)."
+
+msgid "Tidak ada lirik tersinkron ditemukan."
+msgstr "No synced lyrics found."
+
+msgid "selisih %1 dtk"
+msgstr "%1 s difference"
+
+msgid "Tidak ada lagu aktif"
+msgstr "No active song"
+
+msgid "Bukan lirik .lrc bertanda waktu ([mm:ss.xx])"
+msgstr "Not time-stamped .lrc lyrics ([mm:ss.xx])"
+
+msgid "Gagal menyimpan lirik"
+msgstr "Failed to save lyrics"
+
+msgid "Lirik disimpan: %1"
+msgstr "Lyrics saved: %1"
+
+msgid "Gagal membaca file"
+msgstr "Failed to read file"
+
+msgid "Dialog file tidak tersedia, ketik path-nya."
+msgstr "File dialog not available, type the path instead."
+
+msgid "Cari / ganti lirik"
+msgstr "Search / change lyrics"
+
+msgid "Cari"
+msgstr "Search"
+
+msgid "Tempel"
+msgstr "Paste"
+
+msgid "File"
+msgstr "File"
+
+msgid "Artis"
+msgstr "Artist"
+
+msgid "Judul"
+msgstr "Title"
+
+msgid "Pakai lirik terpilih"
+msgstr "Use selected lyrics"
+
+msgid "Pakai lirik ini"
+msgstr "Use these lyrics"
+
+msgid "Pilih file .lrc / .txt, atau seret filenya ke widget."
+msgstr "Choose an .lrc / .txt file, or drag it onto the widget."
+
+msgid "Telusuri…"
+msgstr "Browse…"
+
+msgid "Pakai"
+msgstr "Use"
+
+msgid "Jenis font:"
+msgstr "Font:"
+
+msgid "Kosongkan untuk memakai font sistem"
+msgstr "Leave empty to use the system font"
+
+msgid "Ukuran font (pt):"
+msgstr "Font size (pt):"
+
+msgid "Warna teks:"
+msgstr "Text color:"
+
+msgid "Warna baris aktif:"
+msgstr "Active line color:"
+
+msgid "Perataan:"
+msgstr "Alignment:"
+
+msgid "Kiri"
+msgstr "Left"
+
+msgid "Tengah"
+msgstr "Center"
+
+msgid "Kanan"
+msgstr "Right"
+
+msgid "Garis tepi teks:"
+msgstr "Text outline:"
+
+msgid "Aktifkan (agar terbaca di wallpaper terang)"
+msgstr "Enable (keeps text readable on bright wallpapers)"
+
+msgid "Geser waktu (ms):"
+msgstr "Time offset (ms):"
+
+msgid "File .lrc lokal:"
+msgstr "Local .lrc files:"
+
+msgid "Simpan lirik dari LRCLIB sebagai file .lrc"
+msgstr "Save lyrics from LRCLIB as .lrc files"
+
+msgid "Folder lirik:"
+msgstr "Lyrics folder:"
+
+msgid "Romanisasi:"
+msgstr "Romanization:"
+
+msgid "Ubah lirik Jepang/Mandarin/Korea dll ke huruf Latin"
+msgstr "Convert Japanese/Chinese/Korean etc. lyrics to Latin letters"
+
+msgid "Tampilan romanisasi:"
+msgstr "Romanization display:"
+
+msgid "Hanya romaji"
+msgstr "Romanized only"
+
+msgid "Asli + romaji (dua baris)"
+msgstr "Original + romanized (two lines)"
+
+msgid "Pemutar:"
+msgstr "Players:"
+
+msgid "Pisahkan dengan koma. Yang sedang Playing diutamakan, lalu urutan daftar. Kosongkan untuk semua pemutar (kecuali blacklist di bawah). Cek nama dengan: playerctl -l"
+msgstr "Comma separated. The one currently Playing comes first, then list order. Leave empty for all players (except the blacklist below). Check names with: playerctl -l"
+
+msgid "Blacklist:"
+msgstr "Blacklist:"
+
+msgid "Pemutar yang diabaikan saat kolom Pemutar kosong, supaya video di browser tidak dikira lagu. Kolom Pemutar yang diisi selalu didahulukan dari blacklist."
+msgstr "Players ignored when the Players field is empty, so a browser video is not mistaken for a song. A name typed in the Players field always wins over the blacklist."

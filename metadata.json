@@ -4,6 +4,8 @@
         "Authors": [{ "Name": "mazerangga" }],
         "Category": "Multimedia",
         "Description": "Lirik tersinkron (LRC) untuk pemutar musik di desktop Plasma, dengan latar transparan",
+        "Description[en]": "Synced lyrics (LRC) for your music player on the Plasma desktop, with a transparent background",
+        "Description[en]": "Synced lyrics (LRC) for your music player on the Plasma desktop, with a transparent background",
         "Icon": "media-playback-start",
         "Id": "io.github.mazerangga.senandungplasma",
         "License": "GPL-3.0-or-later",

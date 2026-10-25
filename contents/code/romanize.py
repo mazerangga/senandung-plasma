@@ -13,8 +13,14 @@ Lainnya (Cyrillic, Yunani, Arab, Thai, ...) -> unidecode
 Modul yang tidak terpasang dilewati; barisnya dikembalikan apa adanya.
 """
 import json
+import os
 import re
 import sys
+
+# Modul bawaan widget (contents/code/vendor), dipakai bila tidak ada di environment Python.
+_VENDOR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "vendor")
+if os.path.isdir(_VENDOR):
+    sys.path.append(_VENDOR)
 
 try:
     sys.stdin.reconfigure(encoding="utf-8")
