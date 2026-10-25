@@ -1,0 +1,4 @@
+dist/
+*.plasmoid
+__pycache__/
+*.pyc

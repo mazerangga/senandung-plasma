@@ -1,0 +1,14 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [{ "Name": "mazerangga" }],
+        "Category": "Multimedia",
+        "Description": "Lirik tersinkron (LRC) untuk pemutar musik di desktop Plasma, dengan latar transparan",
+        "Icon": "media-playback-start",
+        "Id": "io.github.mazerangga.senandungplasma",
+        "License": "GPL-3.0-or-later",
+        "Name": "Senandung Plasma",
+        "Version": "1.0"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
